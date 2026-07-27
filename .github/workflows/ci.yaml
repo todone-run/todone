@@ -23,7 +23,7 @@ jobs:
           persist-credentials: false
       - uses: jdx/mise-action@dad1bfd3df957f44999b559dd69dc1671cb4e9ea # v4.2.1
 
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           cache: "yarn"
       - run: yarn install --immutable
@@ -62,5 +62,11 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Read zizmor version
+        id: read-zizmor-version
+        run: echo "ZIZMOR_VERSION=$(yq -p toml '.tools.zizmor.0.version' mise.lock)" >> $GITHUB_OUTPUT
+
       - name: Run zizmor
         uses: zizmorcore/zizmor-action@6599ee8b7a49aef6a770f63d261d214911a7ce02 # v0.6.0
+        with:
+          version: ${{ steps.read-zizmor-version.outputs.ZIZMOR_VERSION }}
