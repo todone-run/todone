@@ -25,6 +25,10 @@
   "scripts": {
     "build-docs": "typedoc",
     "dev-docs": "nx watch --includeDependentProjects -p=. -- nx build-docs",
+    "fix:dependencies": "yarn dedupe",
+    "fix:format": "prettier --write .",
+    "fix:lint": "oxlint --fix",
+    "fix:snapshots": "vitest run -u",
     "postinstall": "husky",
     "lint:dependencies": "yarn dedupe --check",
     "lint:format": "prettier --check .",
@@ -75,8 +79,36 @@
         "cache": false,
         "continuous": true
       },
+      "fix": {
+        "dependsOn": [
+          "^fix",
+          "fix:dependencies",
+          "fix:snapshots",
+          "fix:lint",
+          "fix:format"
+        ],
+        "cache": false
+      },
+      "fix:snapshots": {
+        "dependsOn": [
+          "^build",
+          "fix:dependencies"
+        ]
+      },
+      "fix:lint": {
+        "dependsOn": [
+          "^build",
+          "fix:snapshots"
+        ]
+      },
+      "fix:format": {
+        "dependsOn": [
+          "fix:lint"
+        ]
+      },
       "lint": {
         "dependsOn": [
+          "^lint",
           "lint:format",
           "lint:dependencies",
           "lint:lint"
