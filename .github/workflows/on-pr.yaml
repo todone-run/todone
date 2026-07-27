@@ -42,5 +42,4 @@ jobs:
     env:
       RESULTS: ${{ toJSON(needs.*.result) }}
     steps:
-      - run:
-          jq --argjson results "$RESULTS" 'all(. == "success")'
+      - run: jq --argjson results "$RESULTS" -e 'all(. == "success")'
