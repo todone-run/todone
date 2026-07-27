@@ -25,6 +25,7 @@
   "scripts": {
     "build-docs": "typedoc",
     "dev-docs": "nx watch --includeDependentProjects -p=. -- nx build-docs",
+    "fix:actions": "zizmor . --fix=all",
     "fix:dependencies": "yarn dedupe",
     "fix:format": "prettier --write .",
     "fix:lint": "oxlint --fix",
@@ -82,6 +83,7 @@
       "fix": {
         "dependsOn": [
           "^fix",
+          "fix:actions",
           "fix:dependencies",
           "fix:snapshots",
           "fix:lint",
