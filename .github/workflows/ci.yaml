@@ -62,5 +62,11 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Read zizmor version
+        id: read-zizmor-version
+        run: echo "ZIZMOR_VERSION=$(yq -p toml '.tools.zizmor.0.version' mise.lock)" >> $GITHUB_OUTPUT
+
       - name: Run zizmor
         uses: zizmorcore/zizmor-action@192e21d79ab29983730a13d1382995c2307fbcaa # v0.5.7
+        with:
+          version: ${{ steps.read-zizmor-version.outputs.ZIZMOR_VERSION }}
