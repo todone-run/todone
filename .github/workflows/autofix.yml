@@ -23,6 +23,8 @@ jobs:
       - run: yarn install --immutable
 
       - name: Fix
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: yarn nx run-many -t fix
         continue-on-error: true
 
