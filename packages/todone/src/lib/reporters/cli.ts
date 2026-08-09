@@ -1,4 +1,4 @@
-import type { Plugin } from "#/plugin";
+import type { Reporter } from "#/reporter";
 import type * as t from "#/types";
 import chalk from "chalk";
 import dedent from "dedent";
@@ -28,11 +28,11 @@ export interface CliReporterOptions {
   unhandledUrls?: UnhandledUrls;
 }
 
-export const cliReporterPlugin = ({
+export const cliReporter = ({
   locale,
   onlyExpired = false,
   unhandledUrls = "error",
-}: CliReporterOptions = {}): Plugin => {
+}: CliReporterOptions = {}): Reporter => {
   const dateFormatter = new Intl.DateTimeFormat(locale);
 
   let filesCounter = 0;
@@ -44,12 +44,6 @@ export const cliReporterPlugin = ({
   const infoLn = (str = "") => console.log(`\t${str}`);
 
   return {
-    name: "todone:cli-reporter",
-
-    warn: async (message: string) => console.warn(message),
-    info: async (message: string) => console.info(message),
-    debug: async (message: string) => console.debug(message),
-
     async reportFile() {
       filesCounter++;
     },
@@ -71,7 +65,7 @@ export const cliReporterPlugin = ({
             case "error":
               throw new UnhandledUrlError(firstMatch);
             case "warn":
-              this.warn(
+              console.warn(
                 `no plugin handled ${url} (${file.localPath}:${line}:${column})`,
               );
             // fallthrough

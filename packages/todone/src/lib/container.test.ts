@@ -34,7 +34,7 @@ describe("PluginContainer.checkMatch", () => {
   });
 
   it("returns null when no plugin implements checkMatch", async () => {
-    const container = new PluginContainer([{ name: "reporter-only" }]);
+    const container = new PluginContainer([{ name: "no-checker" }]);
 
     await expect(container.checkMatch({ url })).resolves.toBeNull();
   });
@@ -122,43 +122,18 @@ describe("PluginContainer plugin handling", () => {
     expect(seen.sort()).toEqual(["a", "b", "c"]);
   });
 
-  it("fans reporting hooks out to every plugin", async () => {
-    const reportFileA = vi.fn<NonNullable<Plugin["reportFile"]>>(
-      async () => {},
-    );
-    const reportFileB = vi.fn<NonNullable<Plugin["reportFile"]>>(
-      async () => {},
-    );
-    const container = new PluginContainer([
-      { name: "a", reportFile: reportFileA },
-      { name: "b", reportFile: reportFileB },
-    ]);
-
-    const file: t.File = { localPath: "x.txt", fullPath: "/x.txt" };
-    await container.reportFile(file);
-
-    expect(reportFileA).toHaveBeenCalledExactlyOnceWith(file);
-    expect(reportFileB).toHaveBeenCalledExactlyOnceWith(file);
-  });
-
-  it("fans context logging out to every plugin", () => {
-    const warnA = vi.fn<NonNullable<Plugin["warn"]>>();
-    const warnB = vi.fn<NonNullable<Plugin["warn"]>>();
-    const container = new PluginContainer([
-      { name: "a", warn: warnA },
-      { name: "b", warn: warnB },
-    ]);
+  it("routes context logging to the console", () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const container = new PluginContainer([]);
 
     container.warn("careful");
 
-    expect(warnA).toHaveBeenCalledExactlyOnceWith("careful");
-    expect(warnB).toHaveBeenCalledExactlyOnceWith("careful");
+    expect(warn).toHaveBeenCalledExactlyOnceWith("careful");
   });
 
   it("lets a plugin reach the shared context through `this`", async () => {
-    const warn = vi.fn<NonNullable<Plugin["warn"]>>();
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
     const container = new PluginContainer([
-      { name: "logger", warn },
       {
         name: "complainer",
         async checkMatch() {

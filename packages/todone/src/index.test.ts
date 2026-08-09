@@ -2,6 +2,7 @@ import { run } from "#/index";
 import type { ConfigInput } from "#/lib/config";
 import { PluginError } from "#/lib/container";
 import type { Plugin } from "#/plugin";
+import type { Reporter } from "#/reporter";
 import * as fs from "node:fs/promises";
 import * as os from "node:os";
 import * as path from "node:path";
@@ -28,17 +29,14 @@ const baseConfig = {
 /** A reporter that records every hook invocation in order. */
 const makeCapturingReporter = () => {
   const events: unknown[][] = [];
-  const checkMatch = vi.fn<NonNullable<Plugin["checkMatch"]>>(async () => null);
-  const reporter: Plugin = {
-    name: "capturing-reporter",
-    checkMatch,
+  const reporter: Reporter = {
     reportFile: async (file) => void events.push(["file", file.localPath]),
     reportMatch: async (match) => void events.push(["match", match.url.href]),
     reportResult: async (result) =>
       void events.push(["result", result.url.href]),
     reportEnd: async (error) => void events.push(["end", error]),
   };
-  return { events, reporter, checkMatch };
+  return { events, reporter };
 };
 
 describe("run", () => {
@@ -88,7 +86,7 @@ describe("run", () => {
     expect(results[0]!.result).toBeNull();
   });
 
-  it("routes reporting to the forced reporter but URL checks to the configured plugins", async () => {
+  it("routes reporting to the given reporter and URL checks to the plugins", async () => {
     await fs.writeFile(path.join(dir, "a.txt"), "@TODO test:one\n");
 
     const configuredCheck = vi.fn<NonNullable<Plugin["checkMatch"]>>(
@@ -97,32 +95,19 @@ describe("run", () => {
         isExpired: false,
       }),
     );
-    const configuredReportFile = vi.fn<NonNullable<Plugin["reportFile"]>>(
-      async () => {},
-    );
-    const { events, reporter, checkMatch } = makeCapturingReporter();
+    const { events, reporter } = makeCapturingReporter();
 
     const results = await run(
       {
         ...baseConfig,
-        plugins: [
-          {
-            name: "configured",
-            checkMatch: configuredCheck,
-            reportFile: configuredReportFile,
-          },
-        ],
+        plugins: [{ name: "configured", checkMatch: configuredCheck }],
       },
-      { forcedReporter: reporter },
+      { reporter },
     );
 
-    // The configured plugin still checks URLs...
     expect(configuredCheck).toHaveBeenCalledTimes(1);
     expect(results[0]!.result).toEqual({ title: "found", isExpired: false });
 
-    // ...but reporting goes only to the forced reporter.
-    expect(configuredReportFile).not.toHaveBeenCalled();
-    expect(checkMatch).not.toHaveBeenCalled();
     expect(events).toEqual([
       ["file", "a.txt"],
       ["match", "test:one"],
@@ -149,7 +134,7 @@ describe("run", () => {
           },
         ],
       },
-      { forcedReporter: reporter },
+      { reporter },
     );
 
     await expect(rejection).rejects.toBeInstanceOf(PluginError);

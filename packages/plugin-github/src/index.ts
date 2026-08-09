@@ -1,30 +1,18 @@
 import { Octokit } from "octokit";
-import type { PluginOption } from "todone/plugin";
+import type { Plugin } from "todone/plugin";
 import { makeCheckerPlugin } from "./checker";
-import { makeLoggerPlugin } from "./logger";
 import { GithubPluginOptionsInput, GithubPluginOptionsSchema } from "./options";
-import { makeReporterPlugin } from "./reporter";
 
 /**
  * A todone plugin for GitHub.
  *
- * It always checks whether the GitHub issue, pull request, or milestone a TODO
- * points at has been resolved. On top of that, it can report the run to GitHub
- * Actions ({@link GithubPluginOptions.actions}) and keep a set of issues in
- * sync with the expired TODOs ({@link GithubPluginOptions.createIssues}).
+ * It checks whether the GitHub issue, pull request, or milestone a TODO
+ * points at has been resolved.
  */
-const githubPlugin = (
-  inputOptions: GithubPluginOptionsInput = {},
-): PluginOption => {
+const githubPlugin = (inputOptions: GithubPluginOptionsInput = {}): Plugin => {
   const options = GithubPluginOptionsSchema.parse(inputOptions);
 
   if (!options.token) {
-    if (options.createIssues) {
-      throw new Error(
-        "A GitHub token is required to sync issues (`token` option or GITHUB_TOKEN env var).",
-      );
-    }
-
     process.emitWarning(
       "No GitHub token provided (`token` option or GITHUB_TOKEN env var). " +
         "Public repositories will still work, but private repositories and " +
@@ -35,11 +23,7 @@ const githubPlugin = (
 
   const client = new Octokit(options.token ? { auth: options.token } : {});
 
-  return [
-    makeCheckerPlugin(client),
-    options.actions.logger && makeLoggerPlugin(),
-    makeReporterPlugin(client, options),
-  ].filter((v) => !!v);
+  return makeCheckerPlugin(client);
 };
 
 export default githubPlugin;

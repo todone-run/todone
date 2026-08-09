@@ -1,4 +1,4 @@
-import type { Plugin } from "#/plugin";
+import type { Reporter } from "#/reporter";
 import * as path from "node:path";
 import * as z from "zod";
 
@@ -56,12 +56,10 @@ const ResultItem = z.object({
 const OutputItem = z.union([FileItem, MatchItem, ResultItem]);
 type OutputItem = z.infer<typeof OutputItem>;
 
-export const jsonReporter = (): Plugin => {
+export const jsonReporter = (): Reporter => {
   const outputItem = jsonCodec(OutputItem);
 
   return {
-    name: "todone:json-reporter",
-
     async reportFile(file) {
       console.log(outputItem.encode({ type: "file", location: file.fullPath }));
     },

@@ -23,6 +23,7 @@
     "#/package.json": "./package.json",
     "#/index": "./src/index.ts",
     "#/plugin": "./src/plugin.ts",
+    "#/reporter": "./src/reporter.ts",
     "#/types": "./src/types.ts",
     "#/lib/*": "./src/lib/*.ts"
   },

@@ -4,7 +4,6 @@ import * as fs from "node:fs/promises";
 import * as os from "node:os";
 import * as path from "node:path";
 import { run } from "todone";
-import type { Plugin } from "todone/plugin";
 import {
   afterAll,
   afterEach,
@@ -73,12 +72,7 @@ describe("githubPlugin through the todone pipeline", () => {
       keyword: "@TODO",
       include: ["**/*"],
       exclude: { gitignore: false },
-      plugins: [
-        githubPlugin({
-          token: "test-token",
-          actions: { logger: false, summary: false },
-        }),
-      ],
+      plugins: [githubPlugin({ token: "test-token" })],
     });
 
     const byUrl = new Map(results.map((result) => [result.url.href, result]));
@@ -114,10 +108,10 @@ describe("githubPlugin through the todone pipeline", () => {
       ),
     );
 
-    const [checker] = githubPlugin({ token: "test-token" }) as Plugin[];
+    const checker = githubPlugin({ token: "test-token" });
 
     await expect(
-      checker!.checkMatch!.call(
+      checker.checkMatch!.call(
         {
           warn: vi.fn<(message: string) => void>(),
           info: vi.fn<(message: string) => void>(),
@@ -126,61 +120,5 @@ describe("githubPlugin through the todone pipeline", () => {
         { url: new URL("https://github.com/octo/repo/issues/404") },
       ),
     ).rejects.toThrow(/Not Found/);
-  });
-});
-
-describe("githubPlugin issue syncing", () => {
-  it("creates a labeled issue with an embedded data zone for a new expired TODO", async () => {
-    const created: unknown[] = [];
-
-    server.use(
-      http.get(`${api}/repos/octo/repo/issues/7`, () =>
-        HttpResponse.json({
-          title: "Fix everything",
-          state: "closed",
-          closed_at: "2023-01-02T03:04:05Z",
-        }),
-      ),
-      // The reconciler lists currently-open todone-labeled issues: none.
-      http.get(`${api}/repos/octo/repo/issues`, () => HttpResponse.json([])),
-      http.post(`${api}/repos/octo/repo/issues`, async ({ request }) => {
-        created.push(await request.json());
-        return HttpResponse.json(
-          { number: 99, title: "created" },
-          { status: 201 },
-        );
-      }),
-    );
-
-    await fs.writeFile(
-      path.join(dir, "hello.ts"),
-      "// @TODO https://github.com/octo/repo/issues/7\n",
-    );
-
-    await run({
-      keyword: "@TODO",
-      include: ["**/*"],
-      exclude: { gitignore: false },
-      plugins: [
-        githubPlugin({
-          token: "test-token",
-          context: { repository: "octo/repo", sha: "abc123" },
-          actions: { logger: false, summary: false },
-          createIssues: true,
-        }),
-      ],
-    });
-
-    expect(created).toHaveLength(1);
-    expect(created[0]).toMatchObject({
-      title: "TODO: Fix everything",
-      labels: ["todone"],
-    });
-    const body = (created[0] as { body: string }).body;
-    expect(body).toContain("todone start");
-    expect(body).toContain(
-      JSON.stringify({ todoUrl: "https://github.com/octo/repo/issues/7" }),
-    );
-    expect(body).toContain("blob/abc123");
   });
 });
