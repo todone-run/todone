@@ -1,4 +1,4 @@
-import type { Reporter } from "#/reporter";
+import type { Reporter } from "#/lib/reporter";
 import * as path from "node:path";
 import * as z from "zod";
 

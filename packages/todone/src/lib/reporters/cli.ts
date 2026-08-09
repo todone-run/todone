@@ -1,4 +1,4 @@
-import type { Reporter } from "#/reporter";
+import type { Reporter } from "#/lib/reporter";
 import type * as t from "#/types";
 import chalk from "chalk";
 import dedent from "dedent";

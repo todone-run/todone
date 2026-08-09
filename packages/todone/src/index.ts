@@ -1,4 +1,4 @@
-import type { Reporter } from "#/reporter";
+import type { Reporter } from "#/lib/reporter";
 import type * as t from "#/types";
 import * as it from "@cprecioso/async-iterable-helpers";
 import { ConfigInput, ConfigSchema } from "./lib/config";
@@ -43,8 +43,6 @@ export const run = async (
     throw error;
   }
 };
-
-export type { Reporter } from "#/reporter";
 
 function checkMatchesDeduping(
   container: PluginContainer,

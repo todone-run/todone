@@ -27,7 +27,7 @@ export interface Plugin {
    * Return `null` if this plugin doesn't handle the URL; throw only for real
    * failures (network errors, missing credentials, malformed data).
    */
-  checkMatch?(
+  checkMatch(
     this: PluginContext,
     options: { url: URL },
   ): Promise<CheckerResult | null>;

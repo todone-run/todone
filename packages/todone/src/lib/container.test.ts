@@ -33,8 +33,8 @@ describe("PluginContainer.checkMatch", () => {
     await expect(container.checkMatch({ url })).resolves.toBeNull();
   });
 
-  it("returns null when no plugin implements checkMatch", async () => {
-    const container = new PluginContainer([{ name: "no-checker" }]);
+  it("returns null when there are no plugins", async () => {
+    const container = new PluginContainer([]);
 
     await expect(container.checkMatch({ url })).resolves.toBeNull();
   });

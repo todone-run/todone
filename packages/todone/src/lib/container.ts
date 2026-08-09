@@ -36,19 +36,17 @@ export class PluginContainer implements PluginContext {
 
   checkMatch = async ({ url }: { url: URL }): Promise<CheckerResult | null> => {
     const result = await Promise.any(
-      this.#plugins
-        .map((plugin) =>
-          plugin.checkMatch?.call(this, { url }).then(
-            (result) => {
-              if (result === null) throw PluginContainer.#UNHANDLED;
-              return result;
-            },
-            (error) => {
-              throw new PluginError(plugin.name, url, error);
-            },
-          ),
-        )
-        .filter((checkPromise) => checkPromise != null),
+      this.#plugins.map((plugin) =>
+        plugin.checkMatch.call(this, { url }).then(
+          (result) => {
+            if (result === null) throw PluginContainer.#UNHANDLED;
+            return result;
+          },
+          (error) => {
+            throw new PluginError(plugin.name, url, error);
+          },
+        ),
+      ),
     ).catch((error): null => {
       if (error instanceof AggregateError) {
         const realErrors = error.errors.filter(

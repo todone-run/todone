@@ -111,7 +111,7 @@ describe("githubPlugin through the todone pipeline", () => {
     const checker = githubPlugin({ token: "test-token" });
 
     await expect(
-      checker.checkMatch!.call(
+      checker.checkMatch.call(
         {
           warn: vi.fn<(message: string) => void>(),
           info: vi.fn<(message: string) => void>(),

@@ -1,8 +1,8 @@
 import { run } from "#/index";
 import type { ConfigInput } from "#/lib/config";
 import { PluginError } from "#/lib/container";
+import type { Reporter } from "#/lib/reporter";
 import type { Plugin } from "#/plugin";
-import type { Reporter } from "#/reporter";
 import * as fs from "node:fs/promises";
 import * as os from "node:os";
 import * as path from "node:path";
