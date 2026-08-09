@@ -1,0 +1,75 @@
+{
+  "name": "@todone/github-action",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "GitHub Action that runs the todone CLI and reports the results to the job summary and issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/todone-run/todone.git",
+    "directory": "packages/github-action"
+  },
+  "bugs": {
+    "url": "https://github.com/todone-run/todone/issues"
+  },
+  "author": "Carlos Precioso <npm@precioso.design>",
+  "license": "ISC",
+  "private": true,
+  "packageManager": "yarn@4.17.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "bin": {
+    "todone-github-action": "dist/bin.js"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "check": "tsc --noEmit -p .",
+    "dev": "tsdown --watch",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@actions/core": "^3.0.1",
+    "@cprecioso/async-iterable-helpers": "^0.4.0",
+    "hast-util-from-html": "^2.0.3",
+    "hast-util-to-html": "^9.0.5",
+    "hastscript": "^9.0.1",
+    "mdast-util-from-markdown": "^2.0.3",
+    "mdast-util-gfm": "^3.1.0",
+    "mdast-util-to-markdown": "^2.1.2",
+    "mdast-zone": "^6.1.0",
+    "micromark-extension-gfm": "^3.0.0",
+    "octokit": "^5.0.5",
+    "todone": "workspace:^",
+    "unist-builder": "^4.0.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@todone/internal-build": "workspace:^",
+    "@types/mdast": "^4.0.4",
+    "@types/node": "^24.13.3",
+    "msw": "^2.15.0",
+    "tsdown": "^0.22.4",
+    "typescript": "~6.0.3",
+    "vitest": "^4.1.10"
+  },
+  "sideEffects": false,
+  "nx": {
+    "targets": {
+      "test": {
+        "dependsOn": [
+          "build"
+        ]
+      }
+    }
+  }
+}

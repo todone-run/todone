@@ -9,6 +9,7 @@
   "release-type": "node",
   "bump-minor-pre-major": true,
   "packages": {
+    "packages/github-action": {},
     "packages/internal-build": {},
     "packages/plugin-caniuse": {},
     "packages/plugin-date": {},

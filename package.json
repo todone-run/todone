@@ -39,6 +39,7 @@
     "@commitlint/cli": "^21.2.1",
     "@commitlint/config-conventional": "^21.2.0",
     "@commitlint/types": "^21.2.0",
+    "@todone/github-action": "workspace:^",
     "@todone/plugin-date": "workspace:^",
     "@todone/plugin-github": "workspace:^",
     "@vitest/coverage-v8": "^4.1.10",
