@@ -4,7 +4,6 @@ import type {
   PluginContext,
   PluginOption,
 } from "#/plugin";
-import type * as t from "#/types";
 
 export class PluginError extends Error {
   constructor(pluginName: string, url: URL, cause: unknown) {
@@ -13,20 +12,15 @@ export class PluginError extends Error {
 }
 
 /**
- * Holds all the plugins for a run and knows how to dispatch each hook to
- * them: {@link PluginContainer.checkMatch} races all checkers and settles on
- * the first one to recognize the URL, while the reporting hooks and disposal
- * fan out to every plugin implementing them.
- *
- * The reporting hooks mirror the name and signature of their {@link Plugin}
- * counterparts; `checkMatch` instead takes a whole {@link t.Match} and
- * bundles the outcome as a {@link t.Result}.
+ * Holds all the plugins for a run and knows how to dispatch to them:
+ * {@link PluginContainer.checkMatch} races all checkers and settles on the
+ * first one to recognize the URL. It is also the shared
+ * {@link PluginContext} passed to every hook, routing plugin logging to the
+ * console.
  */
 export class PluginContainer implements PluginContext {
   /** Thrown internally when a plugin didn't recognize a URL. */
   static readonly #UNHANDLED = Symbol("unhandled");
-
-  readonly name = "todone:plugin-container";
 
   readonly #plugins: readonly Plugin[];
 
@@ -34,62 +28,25 @@ export class PluginContainer implements PluginContext {
     this.#plugins = (plugins as readonly Plugin[]).flat(Infinity);
   }
 
-  warn = (message: string) =>
-    this.#plugins.forEach((plugin) => plugin.warn?.call(this, message));
+  warn = (message: string) => console.warn(message);
 
-  info = (message: string) =>
-    this.#plugins.forEach((plugin) => plugin.info?.call(this, message));
+  info = (message: string) => console.info(message);
 
-  debug = (message: string) =>
-    this.#plugins.forEach((plugin) => plugin.debug?.call(this, message));
-
-  reportFile = async (file: t.File) => {
-    await Promise.all(
-      this.#plugins.map(
-        async (plugin) => await plugin.reportFile?.call(this, file),
-      ),
-    );
-  };
-
-  reportMatch = async (match: t.Match) => {
-    await Promise.all(
-      this.#plugins.map(
-        async (plugin) => await plugin.reportMatch?.call(this, match),
-      ),
-    );
-  };
-
-  reportResult = async (result: t.Result) => {
-    await Promise.all(
-      this.#plugins.map(
-        async (plugin) => await plugin.reportResult?.call(this, result),
-      ),
-    );
-  };
-
-  reportEnd = async (error?: unknown) => {
-    await Promise.all(
-      this.#plugins.map(
-        async (plugin) => await plugin.reportEnd?.call(this, error),
-      ),
-    );
-  };
+  debug = (message: string) => console.debug(message);
 
   checkMatch = async ({ url }: { url: URL }): Promise<CheckerResult | null> => {
     const result = await Promise.any(
-      this.#plugins
-        .map((plugin) =>
-          plugin.checkMatch?.call(this, { url }).then(
-            (result) => {
-              if (result === null) throw PluginContainer.#UNHANDLED;
-              return result;
-            },
-            (error) => {
-              throw new PluginError(plugin.name, url, error);
-            },
-          ),
-        )
-        .filter((checkPromise) => checkPromise != null),
+      this.#plugins.map((plugin) =>
+        plugin.checkMatch.call(this, { url }).then(
+          (result) => {
+            if (result === null) throw PluginContainer.#UNHANDLED;
+            return result;
+          },
+          (error) => {
+            throw new PluginError(plugin.name, url, error);
+          },
+        ),
+      ),
     ).catch((error): null => {
       if (error instanceof AggregateError) {
         const realErrors = error.errors.filter(

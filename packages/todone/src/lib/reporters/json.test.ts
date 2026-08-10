@@ -12,12 +12,6 @@ const lines = () =>
     ([line]) => JSON.parse(line as string) as unknown,
   );
 
-const ctx = {
-  warn: vi.fn<(message: string) => void>(),
-  info: vi.fn<(message: string) => void>(),
-  debug: vi.fn<(message: string) => void>(),
-};
-
 const file: t.File = { localPath: "input.txt", fullPath: "/fixture/input.txt" };
 
 const match: t.Match = {
@@ -30,7 +24,7 @@ describe("jsonReporter", () => {
   it("emits one JSON line per file with its absolute path", async () => {
     const reporter = jsonReporter();
 
-    await reporter.reportFile!.call(ctx, file);
+    await reporter.reportFile!(file);
 
     expect(lines()).toEqual([{ type: "file", location: "/fixture/input.txt" }]);
   });
@@ -40,10 +34,7 @@ describe("jsonReporter", () => {
 
     await expect(
       Promise.resolve(
-        reporter.reportFile!.call(ctx, {
-          localPath: "x.txt",
-          fullPath: "x.txt",
-        }),
+        reporter.reportFile!({ localPath: "x.txt", fullPath: "x.txt" }),
       ),
     ).rejects.toThrow(/Expected an absolute path/);
   });
@@ -51,7 +42,7 @@ describe("jsonReporter", () => {
   it("emits matches with the URL as a string and the 1-based position", async () => {
     const reporter = jsonReporter();
 
-    await reporter.reportMatch!.call(ctx, match);
+    await reporter.reportMatch!(match);
 
     expect(lines()).toEqual([
       {
@@ -67,7 +58,7 @@ describe("jsonReporter", () => {
   it("emits results with the expiration date as an ISO string", async () => {
     const reporter = jsonReporter();
 
-    await reporter.reportResult!.call(ctx, {
+    await reporter.reportResult!({
       url: match.url,
       matches: [match],
       result: {
@@ -91,7 +82,7 @@ describe("jsonReporter", () => {
   it("omits the expirationDate key when the result has none", async () => {
     const reporter = jsonReporter();
 
-    await reporter.reportResult!.call(ctx, {
+    await reporter.reportResult!({
       url: match.url,
       matches: [match],
       result: { title: "Example", isExpired: false },
@@ -110,7 +101,7 @@ describe("jsonReporter", () => {
   it("emits nothing for unhandled results", async () => {
     const reporter = jsonReporter();
 
-    await reporter.reportResult!.call(ctx, {
+    await reporter.reportResult!({
       url: match.url,
       matches: [match],
       result: null,

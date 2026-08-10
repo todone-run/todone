@@ -9,7 +9,7 @@ export class JsonCommand extends Command {
   static usage = Command.Usage({
     description: "Run todone and output NDJSON",
     details:
-      "Checks the TODOs in your code and prints one JSON object per line for machine consumption. Reporting hooks from configured plugins are not run. `--json=v1` pins the current output format, while `--json` is an alias for the latest version.",
+      "Checks the TODOs in your code and prints one JSON object per line for machine consumption. `--json=v1` pins the current output format, while `--json` is an alias for the latest version.",
     examples: [
       ["Run with NDJSON output", "$0 run --json"],
       ["Run with version-pinned NDJSON output", "$0 run --json=v1"],

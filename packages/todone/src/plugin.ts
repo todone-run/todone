@@ -1,5 +1,3 @@
-import type * as t from "#/types";
-
 export interface PluginContext {
   warn(this: void, message: string): void;
   info(this: void, message: string): void;
@@ -9,10 +7,9 @@ export interface PluginContext {
 export type PluginOption = Plugin | readonly PluginOption[];
 
 /**
- * A todone plugin. All hooks are optional: a plugin can check TODO URLs
- * ({@link Plugin.checkMatch}), report progress and results (`report*`,
- * `warn`/`info`/`debug`), clean up when the run finishes
- * (`Symbol.asyncDispose`), or any combination of them.
+ * A todone plugin. A plugin checks TODO URLs through its
+ * {@link Plugin.checkMatch} hook, and can log through the shared
+ * {@link PluginContext} (`this.warn`/`this.info`/`this.debug`).
  *
  * For example, a GitHub plugin might check if a URL points to a GitHub issue
  * or PR, and if so, whether that issue or PR is still open.
@@ -24,25 +21,16 @@ export interface Plugin {
    */
   name: string;
 
-  warn?(this: PluginContext, message: string): void;
-  info?(this: PluginContext, message: string): void;
-  debug?(this: PluginContext, message: string): void;
-
   /**
    * Check whether a URL should be considered as expired or not.
    *
    * Return `null` if this plugin doesn't handle the URL; throw only for real
    * failures (network errors, missing credentials, malformed data).
    */
-  checkMatch?(
+  checkMatch(
     this: PluginContext,
     options: { url: URL },
   ): Promise<CheckerResult | null>;
-
-  reportFile?(this: PluginContext, item: t.File): Promise<void>;
-  reportMatch?(this: PluginContext, item: t.Match): Promise<void>;
-  reportResult?(this: PluginContext, item: t.Result): Promise<void>;
-  reportEnd?(this: PluginContext, error?: unknown): Promise<void>;
 }
 
 /**

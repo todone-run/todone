@@ -1,4 +1,4 @@
-import type { Plugin } from "#/plugin";
+import type { Reporter } from "#/lib/reporter";
 import type * as t from "#/types";
 import * as it from "@cprecioso/async-iterable-helpers";
 import { ConfigInput, ConfigSchema } from "./lib/config";
@@ -8,45 +8,41 @@ import { makeFileMatcher } from "./lib/matcher";
 
 export interface RunOptions {
   /**
-   * If set, all reporting goes to this plugin instead of the configured ones.
-   * The configured plugins are still used to check URLs and are still
-   * disposed of at the end of the run.
+   * Receives progress and results as the run advances. Omit for a silent
+   * run that only returns the results.
    */
-  forcedReporter?: Plugin;
+  reporter?: Reporter;
 }
 
 export const run = async (
   rawConfig: ConfigInput,
-  { forcedReporter }: RunOptions = {},
+  { reporter }: RunOptions = {},
 ) => {
   const config = ConfigSchema.strict().decode(rawConfig);
 
   const container = new PluginContainer(config.plugins);
-  const reporter = forcedReporter ?? container;
 
   try {
     const results = await it
       .from(getFiles(process.cwd(), config))
-      .pipe(it.tap(reporter.reportFile?.bind(container) ?? noop))
+      .pipe(it.tap(async (file) => await reporter?.reportFile?.(file)))
 
       .pipe(it.flatMap(makeFileMatcher(config.keyword.pattern)))
-      .pipe(it.tap(reporter.reportMatch?.bind(container) ?? noop))
+      .pipe(it.tap(async (match) => await reporter?.reportMatch?.(match)))
 
       .pipe(checkMatchesDeduping(container))
-      .pipe(it.tap(reporter.reportResult?.bind(container) ?? noop))
+      .pipe(it.tap(async (result) => await reporter?.reportResult?.(result)))
 
       .sink(it.toArray());
 
-    await reporter.reportEnd?.call(container);
+    await reporter?.reportEnd?.();
 
     return results;
   } catch (error) {
-    await reporter.reportEnd?.call(container, error);
+    await reporter?.reportEnd?.(error);
     throw error;
   }
 };
-
-const noop = async () => {};
 
 function checkMatchesDeduping(
   container: PluginContainer,
