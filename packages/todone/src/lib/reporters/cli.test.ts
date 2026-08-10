@@ -1,14 +1,6 @@
-import { cliReporterPlugin } from "#/lib/reporters/cli";
-import type { PluginContext } from "#/plugin";
+import { cliReporter } from "#/lib/reporters/cli";
 import type * as t from "#/types";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-
-const makeContext = () =>
-  ({
-    warn: vi.fn<(message: string) => void>(),
-    info: vi.fn<(message: string) => void>(),
-    debug: vi.fn<(message: string) => void>(),
-  }) satisfies PluginContext;
 
 const makeResult = (
   url: string,
@@ -35,48 +27,43 @@ beforeEach(() => {
 
 const logged = () => (log.mock.calls as unknown[][]).map(([line]) => line);
 
-describe("cliReporterPlugin unhandled URLs", () => {
+describe("cliReporter unhandled URLs", () => {
   const unhandled = makeResult("test:mystery", null, [[3, 7]]);
 
   it("throws an explanatory error by default", async () => {
-    const reporter = cliReporterPlugin();
+    const reporter = cliReporter();
 
-    await expect(
-      reporter.reportResult!.call(makeContext(), unhandled),
-    ).rejects.toThrow(
+    await expect(reporter.reportResult!(unhandled)).rejects.toThrow(
       "No plugin returned a result for test:mystery (input.txt:3:7)",
     );
   });
 
-  it("warns through the plugin context with `warn`", async () => {
-    const reporter = cliReporterPlugin({ unhandledUrls: "warn" });
-    const context = makeContext();
+  it("warns to the console with `warn`", async () => {
+    const reporter = cliReporter({ unhandledUrls: "warn" });
 
-    await reporter.reportResult!.call(context, unhandled);
+    await reporter.reportResult!(unhandled);
 
-    expect(context.warn).toHaveBeenCalledExactlyOnceWith(
+    expect(warn).toHaveBeenCalledExactlyOnceWith(
       "no plugin handled test:mystery (input.txt:3:7)",
     );
     expect(logged()).toEqual([]);
   });
 
   it("stays silent with `ignore`", async () => {
-    const reporter = cliReporterPlugin({ unhandledUrls: "ignore" });
-    const context = makeContext();
+    const reporter = cliReporter({ unhandledUrls: "ignore" });
 
-    await reporter.reportResult!.call(context, unhandled);
+    await reporter.reportResult!(unhandled);
 
-    expect(context.warn).not.toHaveBeenCalled();
+    expect(warn).not.toHaveBeenCalled();
     expect(logged()).toEqual([]);
   });
 });
 
-describe("cliReporterPlugin output", () => {
+describe("cliReporter output", () => {
   it("prints every match location, the URL, the status, and the date", async () => {
-    const reporter = cliReporterPlugin({ locale: "en-US" });
+    const reporter = cliReporter({ locale: "en-US" });
 
-    await reporter.reportResult!.call(
-      makeContext(),
+    await reporter.reportResult!(
       makeResult(
         "test:expired-thing",
         {
@@ -102,10 +89,9 @@ describe("cliReporterPlugin output", () => {
   });
 
   it("prints future expirations as not expired", async () => {
-    const reporter = cliReporterPlugin({ locale: "en-US" });
+    const reporter = cliReporter({ locale: "en-US" });
 
-    await reporter.reportResult!.call(
-      makeContext(),
+    await reporter.reportResult!(
       makeResult("test:fresh", {
         title: "Fresh thing",
         isExpired: false,
@@ -123,10 +109,9 @@ describe("cliReporterPlugin output", () => {
   });
 
   it("omits the date line when there is no expiration date", async () => {
-    const reporter = cliReporterPlugin();
+    const reporter = cliReporter();
 
-    await reporter.reportResult!.call(
-      makeContext(),
+    await reporter.reportResult!(
       makeResult("test:dateless", { title: "Dateless", isExpired: false }),
     );
 
@@ -139,16 +124,14 @@ describe("cliReporterPlugin output", () => {
   });
 
   it("hides non-expired results when onlyExpired is set, but still counts them", async () => {
-    const reporter = cliReporterPlugin({ onlyExpired: true });
-    const context = makeContext();
+    const reporter = cliReporter({ onlyExpired: true });
 
-    await reporter.reportResult!.call(
-      context,
+    await reporter.reportResult!(
       makeResult("test:fresh", { title: "Fresh", isExpired: false }),
     );
     expect(logged()).toEqual([]);
 
-    await reporter.reportEnd!.call(context);
+    await reporter.reportEnd!();
     expect(logged()).toEqual([
       "Analysis complete:\n" +
         "  0 files found\n" +
@@ -159,24 +142,23 @@ describe("cliReporterPlugin output", () => {
   });
 });
 
-describe("cliReporterPlugin summary", () => {
+describe("cliReporter summary", () => {
   it("counts files, matches, results, and expired results", async () => {
-    const reporter = cliReporterPlugin();
-    const context = makeContext();
+    const reporter = cliReporter();
 
     const file: t.File = { localPath: "a.txt", fullPath: "/a.txt" };
-    await reporter.reportFile!.call(context, file);
-    await reporter.reportFile!.call(context, file);
+    await reporter.reportFile!(file);
+    await reporter.reportFile!(file);
 
     const expired = makeResult("test:expired", {
       title: "Expired",
       isExpired: true,
     });
-    await reporter.reportMatch!.call(context, expired.matches[0]!);
-    await reporter.reportResult!.call(context, expired);
+    await reporter.reportMatch!(expired.matches[0]!);
+    await reporter.reportResult!(expired);
 
     log.mockClear();
-    await reporter.reportEnd!.call(context);
+    await reporter.reportEnd!();
 
     expect(logged()).toEqual([
       "Analysis complete:\n" +
@@ -188,9 +170,9 @@ describe("cliReporterPlugin summary", () => {
   });
 
   it("prints the error when the run failed", async () => {
-    const reporter = cliReporterPlugin();
+    const reporter = cliReporter();
 
-    await reporter.reportEnd!.call(makeContext(), new Error("kaboom"));
+    await reporter.reportEnd!(new Error("kaboom"));
 
     expect(error).toHaveBeenCalledExactlyOnceWith("Error: Error: kaboom");
     expect(warn).not.toHaveBeenCalled();
