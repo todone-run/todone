@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   build-run:
@@ -30,7 +31,6 @@ jobs:
         run: yarn nx run-many -t build
 
       - name: Run todone
-        env:
-          NODE_OPTIONS: "--enable-source-maps"
-          GITHUB_TOKEN: ${{ github.token }}
-        run: yarn todone run
+        uses: ./packages/github-action
+        with:
+          create-issues: "true"
