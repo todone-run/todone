@@ -6,7 +6,7 @@
   "packageRules": [
     // *TODO https://github.com/TypeStrong/typedoc/issues/3098
     {
-      "matchPackageNames": ["typescript", "oxlint-tsgolint"],
+      "matchPackageNames": ["typescript"],
       "allowedVersions": "<7",
     },
   ],
