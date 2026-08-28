@@ -1,5 +1,3 @@
-// @ts-check
-
 const prettier = "prettier --write --ignore-unknown";
 const oxlint = "oxlint --fix";
 
