@@ -15,8 +15,10 @@ permissions:
   security-events: write
 
 jobs:
-  build:
+  nx-task:
     runs-on: ubuntu-latest
+
+    name: Run ${{ matrix.task }} task
 
     strategy:
       matrix:
