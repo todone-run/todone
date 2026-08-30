@@ -5125,11 +5125,11 @@ __metadata:
   linkType: hard
 
 "typedoc-plugin-dt-links@npm:^2.0.62":
-  version: 2.0.68
-  resolution: "typedoc-plugin-dt-links@npm:2.0.68"
+  version: 2.0.69
+  resolution: "typedoc-plugin-dt-links@npm:2.0.69"
   peerDependencies:
     typedoc: 0.28.x
-  checksum: 10/d0ea458c43ab7936e530a4e9ce5afc192ad560c6f6104f1fc7fbf8b9de7f7fcf29105405c04f107c6f87fc3b793a7b2d65becc2227b47fc24ee1826a8144f2df
+  checksum: 10/b30f6d8d4d93b0c44f4d5b0333e845505bfa514e81884269cdb5c121dccb02b926cc3314805ccad6b95d56d855956092d49fc70fc46620058b483b31d729e379
   languageName: node
   linkType: hard
 
