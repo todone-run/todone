@@ -10,7 +10,6 @@ export const defaultConfig = ({ entries = ["index"] } = {}) =>
     outDir: "dist",
     clean: true,
     format: ["esm"],
-    fixedExtension: false,
 
     platform: "node",
     target: "node24",
