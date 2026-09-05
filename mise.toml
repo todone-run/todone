@@ -1,6 +1,5 @@
 [tools]
 node = "24"
-"npm:corepack" = "latest"
 "npm:npm" = "latest"
 zizmor = "latest"
 
@@ -10,3 +9,4 @@ zizmor = "latest"
 [settings]
 lockfile = true
 minimum_release_age = "7d"
+idiomatic_version_file_enable_tools = ["yarn"]
