@@ -18,7 +18,7 @@
   "engines": {
     "node": ">=24"
   },
-  "bin": "dist/bin.js",
+  "bin": "dist/bin.mjs",
   "imports": {
     "#/package.json": "./package.json",
     "#/index": "./src/index.ts",
@@ -29,20 +29,20 @@
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
     },
     "./config": {
-      "types": "./dist/config.d.ts",
-      "default": "./dist/config.js"
+      "types": "./dist/config.d.mts",
+      "default": "./dist/config.mjs"
     },
     "./plugin": {
-      "types": "./dist/plugin.d.ts",
-      "default": "./dist/plugin.js"
+      "types": "./dist/plugin.d.mts",
+      "default": "./dist/plugin.mjs"
     },
     "./types": {
-      "types": "./dist/types.d.ts",
-      "default": "./dist/types.js"
+      "types": "./dist/types.d.mts",
+      "default": "./dist/types.mjs"
     }
   },
   "files": [
