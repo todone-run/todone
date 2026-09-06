@@ -35,12 +35,12 @@
   },
   "devDependencies": {
     "@todone/internal-build": "workspace:^",
-    "@types/node": "^24.13.3",
-    "msw": "^2.15.0",
+    "@types/node": "24.13.3",
+    "msw": "2.15.0",
     "todone": "workspace:^",
-    "tsdown": "^0.22.4",
-    "typescript": "~6.0.3",
-    "vitest": "^4.1.10"
+    "tsdown": "0.22.14",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
   },
   "publishConfig": {
     "provenance": true,
