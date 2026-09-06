@@ -5,8 +5,16 @@
   "rangeStrategy": "bump",
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
-    // *TODO https://github.com/TypeStrong/typedoc/issues/3098
     {
+      "matchDepTypes": ["devDependencies"],
+      "rangeStrategy": "pin",
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "rangeStrategy": "widen",
+    },
+    {
+      // *TODO https://github.com/TypeStrong/typedoc/issues/3098
       "matchPackageNames": ["typescript"],
       "allowedVersions": "<7",
     },
