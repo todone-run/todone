@@ -6,10 +6,6 @@
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
-      "matchDepTypes": ["devDependencies"],
-      "rangeStrategy": "pin",
-    },
-    {
       "matchDepTypes": ["peerDependencies"],
       "rangeStrategy": "widen",
     },
