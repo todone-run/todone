@@ -3,6 +3,7 @@
   "references": [
     { "path": "./packages/internal-build" },
     { "path": "./packages/todone" },
+    { "path": "./packages/github-action" },
     { "path": "./packages/plugin-caniuse" },
     { "path": "./packages/plugin-date" },
     { "path": "./packages/plugin-figma" },

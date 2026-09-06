@@ -1,0 +1,30 @@
+name: todone
+description: Run todone and report the results to the job summary and issues.
+
+inputs:
+  github-token:
+    description: Token used for issue sync and API rate limits.
+    default: ${{ github.token }}
+  create-issues:
+    description: Reconcile expired TODOs against the open todone-labeled issues.
+    default: "false"
+  issue-label:
+    description: Label that marks issues managed by todone.
+    default: "todone"
+
+runs:
+  using: composite
+  steps:
+    # Expects the caller to have installed the workspace and built it
+    # (`yarn install`, `yarn nx run-many -t build`) beforehand.
+    - name: Run todone
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        CREATE_ISSUES: ${{ inputs.create-issues }}
+        ISSUE_LABEL: ${{ inputs.issue-label }}
+        NODE_OPTIONS: --enable-source-maps
+      run: |
+        args=(--issue-label "$ISSUE_LABEL")
+        if [ "$CREATE_ISSUES" = "true" ]; then args+=(--create-issues); fi
+        yarn todone-github-action "${args[@]}"

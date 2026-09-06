@@ -59,6 +59,17 @@ describe("todone run --json", () => {
     expect(normalize(stdout, dir)).toMatchSnapshot();
   });
 
+  it("accepts --json=v1 and emits the same output", SLOW, async () => {
+    const dir = fixtureDir("basic");
+    const v1 = await runCli(dir, ["run", "--json=v1"]);
+    const latest = await runCli(dir, ["run", "--json"]);
+
+    expect(v1.stderr).toBe("");
+    expect(v1.exitCode).toBe(0);
+    expect(v1.stdout).toBe(latest.stdout);
+    expect(normalize(v1.stdout, dir)).toMatchSnapshot();
+  });
+
   it("silently skips unhandled URLs", SLOW, async () => {
     const dir = fixtureDir("unhandled");
     const { stdout, stderr, exitCode } = await runCli(dir, ["run", "--json"]);

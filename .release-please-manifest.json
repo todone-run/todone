@@ -1,4 +1,5 @@
 {
+  "packages/github-action": "0.1.0",
   "packages/internal-build": "1.0.1",
   "packages/plugin-caniuse": "1.0.1",
   "packages/plugin-date": "0.4.2",

@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`todone-github-action > runs the CLI and writes the job summary 1`] = `
+"<h1>TODOs found</h1>
+<table><tr><th>File</th><th>URL</th><th>Expired</th><th>Expiration Date</th></tr><tr><td><a href="https://github.example/octo/repo/blob/abc123/input%2Fexample.txt#L1">input/example.txt</a></td><td><a href="fixture:expired-1?date">fixture:expired-1?date</a></td><td>❗</td><td>2000-01-02</td></tr><tr><td><a href="https://github.example/octo/repo/blob/abc123/input%2Fexample.txt#L4">input/example.txt</a></td><td><a href="fixture:expired-1?date">fixture:expired-1?date</a></td><td>❗</td><td>2000-01-02</td></tr><tr><td><a href="https://github.example/octo/repo/blob/abc123/input%2Fexample.txt#L3">input/example.txt</a></td><td><a href="fixture:fresh-1">fixture:fresh-1</a></td><td>⌛</td><td>No expiration date</td></tr><tr><td><a href="https://github.example/octo/repo/blob/abc123/input%2Fexample.txt#L5">input/example.txt</a></td><td><a href="fixture:expired-2">fixture:expired-2</a></td><td>❗</td><td>No expiration date</td></tr></table>
+"
+`;
