@@ -1,3 +1,4 @@
+import pkg from "#/package.json" with { type: "json" };
 import { execFile } from "node:child_process";
 import * as fs from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -5,7 +6,9 @@ import { promisify } from "node:util";
 
 const execFileAsync = promisify(execFile);
 
-const BIN = fileURLToPath(new URL("../../dist/bin.js", import.meta.url));
+const BIN = fileURLToPath(
+  new URL(pkg.bin, import.meta.resolve("#/package.json")),
+);
 
 export interface CliRun {
   stdout: string;
