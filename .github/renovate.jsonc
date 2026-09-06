@@ -1,8 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", "group:allNonMajor", "schedule:weekends"],
+  "extends": [
+    "config:best-practices",
+    "config:js-lib",
+    "group:allNonMajor",
+    "schedule:weekends",
+  ],
   "minimumReleaseAge": "7 days",
-  "rangeStrategy": "bump",
+  "rangeStrategy": "replace",
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     {
