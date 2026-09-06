@@ -1,8 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", "group:allNonMajor", "schedule:weekends"],
-  "rangeStrategy": "bump",
   "minimumReleaseAge": "7 days",
+  "rangeStrategy": "bump",
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
     // *TODO https://github.com/TypeStrong/typedoc/issues/3098
