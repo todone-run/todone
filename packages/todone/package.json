@@ -66,7 +66,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@todone/internal-build": "workspace:^",
+    "@todone/internal-build": "workspace:*",
     "@types/node": "24.13.3",
     "tsdown": "0.22.14",
     "type-fest": "5.8.0",

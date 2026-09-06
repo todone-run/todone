@@ -40,9 +40,9 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@todone/internal-build": "workspace:^",
+    "@todone/internal-build": "workspace:*",
     "msw": "2.15.0",
-    "todone": "workspace:^",
+    "todone": "workspace:*",
     "tsdown": "0.22.14",
     "typescript": "6.0.3",
     "vitest": "4.1.11"
