@@ -5014,7 +5014,7 @@ __metadata:
     vitest: "npm:4.1.11"
     zod: "npm:^4.4.3"
   bin:
-    todone: dist/bin.js
+    todone: dist/bin.mjs
   languageName: unknown
   linkType: soft
 
