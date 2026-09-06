@@ -300,9 +300,9 @@ __metadata:
   linkType: hard
 
 "@cprecioso/async-iterable-helpers@npm:^0.4.0":
-  version: 0.4.0
-  resolution: "@cprecioso/async-iterable-helpers@npm:0.4.0"
-  checksum: 10/488b5cb31fec5d74698963864c735436339050d047ec5b6c34993d6bed515db21db98a38e7cd2e71a07322a396fb3f6d33ae2035c78229977ef074d1c570bef5
+  version: 0.4.1
+  resolution: "@cprecioso/async-iterable-helpers@npm:0.4.1"
+  checksum: 10/7cbc2e1a3a8b9365b5656d64f4558fa4e21458b1db91df5cfc09c8400a8849cb8861139de55ab3c52c9188ccdb4f8bfdae4777daa8a61f11744c1736bb214c67
   languageName: node
   linkType: hard
 
