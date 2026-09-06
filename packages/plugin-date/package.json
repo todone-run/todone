@@ -34,11 +34,11 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@todone/internal-build": "workspace:^",
-    "todone": "workspace:^",
-    "tsdown": "^0.22.4",
-    "typescript": "~6.0.3",
-    "vitest": "^4.1.10"
+    "@todone/internal-build": "workspace:*",
+    "todone": "workspace:*",
+    "tsdown": "0.22.14",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
   },
   "publishConfig": {
     "provenance": true,
