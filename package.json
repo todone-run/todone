@@ -57,6 +57,7 @@
     "typedoc-plugin-dt-links": "2.0.70",
     "typedoc-plugin-mdn-links": "5.1.1",
     "typescript": "6.0.3",
+    "vite": "8.2.2",
     "vitest": "5.0.0"
   },
   "nx": {
