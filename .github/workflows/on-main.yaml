@@ -30,4 +30,4 @@ jobs:
   publish:
     needs: release
     if: fromJson(needs.release.outputs.releases_created)
-    uses: ./.github/workflows/publish.yaml
+    uses: $/.github/workflows/publish.yaml
