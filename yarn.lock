@@ -1368,7 +1368,7 @@ __metadata:
   peerDependencies:
     tsdown: ^0.22.4
     typescript: ~6.0.3
-    vitest: ^4.1.10 || ^5.0.0
+    vitest: ^5.0.0
   languageName: unknown
   linkType: soft
 
