@@ -15,9 +15,7 @@ export const defaultConfig = ({ entries = ["index"] } = {}) =>
     target: "node24",
 
     sourcemap: true,
-    dts: {
-      sourcemap: true,
-    },
+    dts: { sourcemap: true },
 
     publint: {
       enabled: true,
@@ -27,7 +25,6 @@ export const defaultConfig = ({ entries = ["index"] } = {}) =>
     attw: {
       enabled: true,
       module: attw,
-      profile: "esm-only",
       level: "error",
     },
   }) satisfies UserConfig;
