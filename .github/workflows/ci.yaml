@@ -24,11 +24,9 @@ jobs:
       fail-fast: false
       matrix:
         task:
-          - lint
+          - lint,check,test
           - build
-          - check
           - build-docs
-          - test
 
     steps:
       - uses: $/.github/actions/setup
