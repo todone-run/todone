@@ -1,6 +1,6 @@
 [tools]
 node = "24"
-"npm:npm" = "latest"
+npm = "latest"
 zizmor = "latest"
 
 [shell_alias]
