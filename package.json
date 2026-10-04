@@ -54,7 +54,7 @@
     "prettier-plugin-sh": "0.20.2",
     "todone": "workspace:*",
     "typedoc": "0.28.20",
-    "typedoc-plugin-dt-links": "2.0.73",
+    "typedoc-plugin-dt-links": "2.0.74",
     "typedoc-plugin-mdn-links": "5.1.1",
     "typescript": "6.0.3",
     "vite": "8.3.1",
