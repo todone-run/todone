@@ -34,9 +34,9 @@
     "todone": "workspace:^"
   },
   "dependencies": {
-    "browserslist": "^4.28.5",
-    "caniuse-lite": "^1.0.30001803",
-    "zod": "^4.4.3"
+    "browserslist": "^4.29.1",
+    "caniuse-lite": "^1.0.30001812",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@todone/internal-build": "workspace:*",

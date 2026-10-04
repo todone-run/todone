@@ -31,7 +31,7 @@
     "todone": "workspace:^"
   },
   "dependencies": {
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@todone/internal-build": "workspace:*",
