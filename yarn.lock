@@ -1413,7 +1413,7 @@ __metadata:
   dependencies:
     "@todone/internal-build": "workspace:*"
     "@types/node": "npm:24.19.1"
-    msw: "npm:3.0.1"
+    msw: "npm:3.0.2"
     todone: "workspace:*"
     tsdown: "npm:0.23.0"
     typescript: "npm:6.0.3"
@@ -1430,7 +1430,7 @@ __metadata:
   resolution: "@todone/plugin-github@workspace:packages/plugin-github"
   dependencies:
     "@todone/internal-build": "workspace:*"
-    msw: "npm:3.0.1"
+    msw: "npm:3.0.2"
     octokit: "npm:^5.0.5"
     todone: "workspace:*"
     tsdown: "npm:0.23.0"
@@ -3559,9 +3559,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:3.0.1":
-  version: 3.0.1
-  resolution: "msw@npm:3.0.1"
+"msw@npm:3.0.2":
+  version: 3.0.2
+  resolution: "msw@npm:3.0.2"
   dependencies:
     "@inquirer/confirm": "npm:^6.0.11"
     "@msw/url": "npm:^0.1.2"
@@ -3588,7 +3588,7 @@ __metadata:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 10/3e1ebca2b33ba06b513ac2a8aa7098620a9d0a69e1e8b6a1afacbe5bf0e3776aa00fb9257864be153d16770e1e9440b1c82a4ce36cb21113e6080029ec1ea64c
+  checksum: 10/79a0ba1b00e64092b021812f1e0d7de53f26690f662c3ec0eef7bb85e6c633a062acaccba9169688cc528022ada8c8e6fcae80815db05432b7e6684ba703af09
   languageName: node
   linkType: hard
 
