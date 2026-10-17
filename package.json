@@ -45,7 +45,7 @@
     "@yarnpkg/types": "4.0.1",
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
-    "nx": "23.2.1",
+    "nx": "23.3.0",
     "oxlint": "1.87.0",
     "oxlint-tsgolint": "7.0.2003",
     "prettier": "3.9.9",
@@ -57,7 +57,7 @@
     "typedoc-plugin-dt-links": "2.0.75",
     "typedoc-plugin-mdn-links": "5.1.1",
     "typescript": "6.0.3",
-    "vite": "8.3.2",
+    "vite": "8.3.4",
     "vitest": "5.0.3"
   },
   "nx": {
