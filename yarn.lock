@@ -1465,7 +1465,7 @@ __metadata:
     prettier-plugin-sh: "npm:0.20.2"
     todone: "workspace:*"
     typedoc: "npm:0.28.20"
-    typedoc-plugin-dt-links: "npm:2.0.75"
+    typedoc-plugin-dt-links: "npm:2.0.76"
     typedoc-plugin-mdn-links: "npm:5.1.1"
     typescript: "npm:6.0.3"
     vite: "npm:8.3.4"
@@ -4454,12 +4454,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc-plugin-dt-links@npm:2.0.75":
-  version: 2.0.75
-  resolution: "typedoc-plugin-dt-links@npm:2.0.75"
+"typedoc-plugin-dt-links@npm:2.0.76":
+  version: 2.0.76
+  resolution: "typedoc-plugin-dt-links@npm:2.0.76"
   peerDependencies:
     typedoc: 0.28.x
-  checksum: 10/3c1382c2e39e54c433989db88a33f1b3964881e18cb6e6ff19e378b7720c5357e019da0394232a469160f8486c2fc1a574c8711862a0ec19a5febc22f428c8a4
+  checksum: 10/ae21670be9cef4f9e2125113fe69f1ee863eda94dfcf4126d2da0e2200bdfd101c0df7c314364b139e1e2725702c3b24f35862b49ea07951074aa16e799b441d
   languageName: node
   linkType: hard
 
