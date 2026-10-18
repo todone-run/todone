@@ -56,13 +56,13 @@
   },
   "dependencies": {
     "@cprecioso/async-iterable-helpers": "^0.4.0",
+    "@optique/core": "^1.2.5",
+    "@optique/discover": "^1.2.5",
     "c12": "^4.0.0-beta.5",
     "chalk": "^6.0.0",
-    "clipanion": "^4.0.0-rc.4",
     "dedent": "^1.7.2",
     "globby": "^16.2.1",
     "jiti": "^2.7.0",
-    "typanion": "^3.14.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {

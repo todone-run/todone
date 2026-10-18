@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import cli from "./commands";
+import { main } from "./cli";
 
-await cli.runExit(process.argv.slice(2));
+await main();

@@ -937,6 +937,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@optique/core@npm:1.2.5, @optique/core@npm:^1.2.5":
+  version: 1.2.5
+  resolution: "@optique/core@npm:1.2.5"
+  checksum: 10/2e9f6348a4d2eaf253380ac81884f3d80084a3e62ade756915b0ac1cf48fbd615c2c3763ef29d9a64ec3e2ae326469b37190a8276614160893e6ec324de4d9d8
+  languageName: node
+  linkType: hard
+
+"@optique/discover@npm:^1.2.5":
+  version: 1.2.5
+  resolution: "@optique/discover@npm:1.2.5"
+  dependencies:
+    "@optique/core": "npm:1.2.5"
+    "@optique/run": "npm:1.2.5"
+  bin:
+    optique-discover: ./dist/cli.js
+  checksum: 10/78f3afe81c749e39f149255480f550b0b469e726218605a0c5adcb079d971c42e7aba23be722e0adff38853ce5936be8fe684ae16823e91a71a98760fa1c7591
+  languageName: node
+  linkType: hard
+
+"@optique/run@npm:1.2.5":
+  version: 1.2.5
+  resolution: "@optique/run@npm:1.2.5"
+  dependencies:
+    "@optique/core": "npm:1.2.5"
+  checksum: 10/16e54125ae02a019103c7af8954063d24350ecae418d72862bdf128fcbfa57a6a8b79c29ba75e7d661a65f353b213e88097b347ce76c655926ed28db849b0dc5
+  languageName: node
+  linkType: hard
+
 "@oxc-project/types@npm:=0.148.0":
   version: 0.148.0
   resolution: "@oxc-project/types@npm:0.148.0"
@@ -2190,17 +2218,6 @@ __metadata:
   version: 4.1.0
   resolution: "cli-width@npm:4.1.0"
   checksum: 10/b58876fbf0310a8a35c79b72ecfcf579b354e18ad04e6b20588724ea2b522799a758507a37dfe132fafaf93a9922cafd9514d9e1598e6b2cd46694853aed099f
-  languageName: node
-  linkType: hard
-
-"clipanion@npm:^4.0.0-rc.4":
-  version: 4.0.0-rc.4
-  resolution: "clipanion@npm:4.0.0-rc.4"
-  dependencies:
-    typanion: "npm:^3.8.0"
-  peerDependencies:
-    typanion: "*"
-  checksum: 10/c3a94783318d91e6b35380a8aa4a6f166964082a51ff2df21a339266223aaab98f5986dd2c37ca7fd640ad1d233b3cd5b24aad64c51537b54ccc9c66ec070eeb
   languageName: node
   linkType: hard
 
@@ -4728,16 +4745,16 @@ __metadata:
   resolution: "todone@workspace:packages/todone"
   dependencies:
     "@cprecioso/async-iterable-helpers": "npm:^0.4.0"
+    "@optique/core": "npm:^1.2.5"
+    "@optique/discover": "npm:^1.2.5"
     "@todone/internal-build": "workspace:*"
     "@types/node": "npm:24.13.3"
     c12: "npm:^4.0.0-beta.5"
     chalk: "npm:^6.0.0"
-    clipanion: "npm:^4.0.0-rc.4"
     dedent: "npm:^1.7.2"
     globby: "npm:^16.2.1"
     jiti: "npm:^2.7.0"
     tsdown: "npm:0.23.0"
-    typanion: "npm:^3.14.0"
     type-fest: "npm:5.9.0"
     typescript: "npm:6.0.3"
     vite: "npm:8.2.2"
@@ -4834,13 +4851,6 @@ __metadata:
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7
-  languageName: node
-  linkType: hard
-
-"typanion@npm:^3.14.0, typanion@npm:^3.8.0":
-  version: 3.14.0
-  resolution: "typanion@npm:3.14.0"
-  checksum: 10/5e88d9e6121ff0ec543f572152fdd1b70e9cca35406d79013ec8e08defa8ef96de5fec9e98da3afbd1eb4426b9e8e8fe423163d0b482e34a40103cab1ef29abd
   languageName: node
   linkType: hard
 

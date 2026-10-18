@@ -49,10 +49,13 @@ describe("todone run", () => {
   });
 });
 
-describe("todone run --json", () => {
+describe("todone run --json=v1", () => {
   it("emits NDJSON for files, matches, and handled results", SLOW, async () => {
     const dir = fixtureDir("basic");
-    const { stdout, stderr, exitCode } = await runCli(dir, ["run", "--json"]);
+    const { stdout, stderr, exitCode } = await runCli(dir, [
+      "run",
+      "--json=v1",
+    ]);
 
     expect(stderr).toBe("");
     expect(exitCode).toBe(0);
@@ -61,7 +64,10 @@ describe("todone run --json", () => {
 
   it("silently skips unhandled URLs", SLOW, async () => {
     const dir = fixtureDir("unhandled");
-    const { stdout, stderr, exitCode } = await runCli(dir, ["run", "--json"]);
+    const { stdout, stderr, exitCode } = await runCli(dir, [
+      "run",
+      "--json=v1",
+    ]);
 
     expect(stderr).toBe("");
     expect(exitCode).toBe(0);
@@ -110,7 +116,7 @@ describe("todone run --unhandled-urls", () => {
     const { stderr, exitCode } = await runCli(dir, ["run"]);
 
     expect(exitCode).toBe(1);
-    // Not a snapshot: clipanion prints a stack trace with absolute paths.
+    // Not a snapshot: Node prints a stack trace with absolute paths.
     expect(stderr).toContain(
       "No plugin returned a result for nothing:handles-this",
     );
@@ -177,7 +183,7 @@ describe("gitignore handling", () => {
   it("skips gitignored files by default", SLOW, async () => {
     const dir = await scaffold(true);
     try {
-      const { stdout, exitCode } = await runCli(dir, ["run", "--json"]);
+      const { stdout, exitCode } = await runCli(dir, ["run", "--json=v1"]);
 
       expect(exitCode).toBe(0);
       expect(stdout).toContain("fixture:kept");
@@ -190,7 +196,7 @@ describe("gitignore handling", () => {
   it("scans gitignored files when gitignore is disabled", SLOW, async () => {
     const dir = await scaffold(false);
     try {
-      const { stdout, exitCode } = await runCli(dir, ["run", "--json"]);
+      const { stdout, exitCode } = await runCli(dir, ["run", "--json=v1"]);
 
       expect(exitCode).toBe(0);
       expect(stdout).toContain("fixture:kept");
