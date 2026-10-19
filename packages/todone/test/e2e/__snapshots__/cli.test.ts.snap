@@ -47,7 +47,7 @@ Analysis complete:
 "
 `;
 
-exports[`todone run --json > emits NDJSON for files, matches, and handled results 1`] = `
+exports[`todone run --json=v1 > emits NDJSON for files, matches, and handled results 1`] = `
 "{"type":"file","location":"<FIXTURE>/input/example.txt"}
 {"type":"match","url":"fixture:expired-1?date","location":"<FIXTURE>/input/example.txt","line":1,"column":11}
 {"type":"match","url":"fixture:fresh-1","location":"<FIXTURE>/input/example.txt","line":3,"column":1}
