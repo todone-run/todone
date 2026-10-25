@@ -4,7 +4,10 @@ npm = "latest"
 zizmor = "latest"
 
 [shell_alias]
-"nx" = "yarn run -TB nx"
+nx = "yarn run -TB nx"
+
+[tool_alias]
+yarn = "aqua:yarnpkg/berry"
 
 [settings]
 lockfile = true
