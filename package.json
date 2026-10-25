@@ -36,8 +36,8 @@
     "lint:lint": "oxlint"
   },
   "devDependencies": {
-    "@commitlint/cli": "21.2.3",
-    "@commitlint/config-conventional": "21.2.3",
+    "@commitlint/cli": "21.2.4",
+    "@commitlint/config-conventional": "21.2.4",
     "@commitlint/types": "21.2.3",
     "@todone/plugin-date": "workspace:*",
     "@todone/plugin-github": "workspace:*",
