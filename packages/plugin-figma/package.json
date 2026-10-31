@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@todone/internal-build": "workspace:*",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.5",
     "msw": "3.0.3",
     "todone": "workspace:*",
     "tsdown": "0.23.1",

@@ -41,7 +41,7 @@
   "devDependencies": {
     "@todone/internal-build": "workspace:*",
     "@types/caniuse-lite": "1.0.5",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.5",
     "todone": "workspace:*",
     "tsdown": "0.23.1",
     "typescript": "6.0.3",
