@@ -43,9 +43,9 @@
     "@types/caniuse-lite": "1.0.5",
     "@types/node": "24.19.2",
     "todone": "workspace:*",
-    "tsdown": "0.23.1",
+    "tsdown": "0.23.2",
     "typescript": "6.0.3",
-    "vite": "8.3.4",
+    "vite": "8.3.5",
     "vitest": "5.0.5"
   },
   "publishConfig": {
