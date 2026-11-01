@@ -1,33 +1,13 @@
 {
   "folders": [
-    {
-      "name": "✨ @todone/repo",
-      "path": ".",
-    },
-    {
-      "name": "📦 todone",
-      "path": "packages/todone",
-    },
-    {
-      "name": "📦 @todone/internal-build",
-      "path": "packages/internal-build",
-    },
-    {
-      "name": "📦 @todone/plugin-caniuse",
-      "path": "packages/plugin-caniuse",
-    },
-    {
-      "name": "📦 @todone/plugin-date",
-      "path": "packages/plugin-date",
-    },
-    {
-      "name": "📦 @todone/plugin-figma",
-      "path": "packages/plugin-figma",
-    },
-    {
-      "name": "📦 @todone/plugin-github",
-      "path": "packages/plugin-github",
-    },
+    { "name": "✨ @todone/repo", "path": "." },
+    { "name": "📦 todone", "path": "packages/todone" },
+    { "name": "📦 @todone/schema", "path": "packages/schema" },
+    { "name": "📦 @todone/plugin-caniuse", "path": "packages/plugin-caniuse" },
+    { "name": "📦 @todone/plugin-date", "path": "packages/plugin-date" },
+    { "name": "📦 @todone/plugin-figma", "path": "packages/plugin-figma" },
+    { "name": "📦 @todone/plugin-github", "path": "packages/plugin-github" },
+    { "name": "📦 @todone/internal-build", "path": "packages/internal-build" },
   ],
   "settings": {
     "js/ts.tsdk.path": "node_modules/typescript/lib",
