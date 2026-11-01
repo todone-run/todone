@@ -366,7 +366,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cprecioso/tsconfig@npm:^4.1.0":
+"@cprecioso/tsconfig@npm:4.1.0":
   version: 4.1.0
   resolution: "@cprecioso/tsconfig@npm:4.1.0"
   peerDependencies:
@@ -1454,7 +1454,7 @@ __metadata:
   resolution: "@todone/internal-build@workspace:packages/internal-build"
   dependencies:
     "@arethetypeswrong/core": "npm:^0.18.5"
-    "@cprecioso/tsconfig": "npm:^4.1.0"
+    "@cprecioso/tsconfig": "npm:4.1.0"
     "@types/node": "npm:24.19.2"
     publint: "npm:^0.3.25"
     tsdown: "npm:0.23.2"

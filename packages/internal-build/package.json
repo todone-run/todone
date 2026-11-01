@@ -41,7 +41,7 @@
     "typedoc": "^0.28.20"
   },
   "devDependencies": {
-    "@cprecioso/tsconfig": "^4.1.0",
+    "@cprecioso/tsconfig": "4.1.0",
     "@types/node": "24.19.2",
     "tsdown": "0.23.2",
     "typescript": "6.0.3",
