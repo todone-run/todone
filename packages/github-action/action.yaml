@@ -1,0 +1,12 @@
+name: "Todone GitHub Action"
+description: "Tracks todos using Todone"
+
+inputs:
+  dry-run:
+    description: Run the action in dry-run mode
+    required: false
+    default: "false"
+
+runs:
+  using: node24
+  main: dist/bin.mjs
