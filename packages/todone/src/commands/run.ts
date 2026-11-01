@@ -45,7 +45,7 @@ const checkParser = object({
 
 const jsonParser = object({
   mode: constant("json"),
-  _: option("--json", choice(["v1"], { metavar: "VERSION" }), {
+  _: option("--json", choice(["v1"], { metavar: "OUTPUT_VERSION" }), {
     description: message`Print one JSON object per line (NDJSON) for machine consumption.`,
   }),
 });
