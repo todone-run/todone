@@ -2,6 +2,19 @@ name: Run Todone
 
 on:
   workflow_dispatch:
+    inputs:
+      dry-run:
+        type: boolean
+        description: Run the action in dry-run mode
+        required: false
+        default: false
+  workflow_call:
+    inputs:
+      dry-run:
+        type: boolean
+        description: Run the action in dry-run mode
+        required: false
+        default: false
   schedule:
     - cron: "32 18 * * *" # Every day at a chosen random time
   push:
@@ -21,8 +34,13 @@ jobs:
       - name: Build action
         run: yarn nx run-many -t build
 
+      - name: Link binary
+        run: yarn
+
       - name: Run todone
         env:
           NODE_OPTIONS: "--enable-source-maps"
           GITHUB_TOKEN: ${{ github.token }}
-        run: yarn todone run
+        uses: ./packages/github-action # zizmor: ignore[self-repository]
+        with:
+          dry-run: ${{ github.event.inputs.dry-run || false}}

@@ -7,6 +7,7 @@
     { "name": "📦 @todone/plugin-date", "path": "packages/plugin-date" },
     { "name": "📦 @todone/plugin-figma", "path": "packages/plugin-figma" },
     { "name": "📦 @todone/plugin-github", "path": "packages/plugin-github" },
+    { "name": "📦 @todone/github-action", "path": "packages/github-action" },
     { "name": "📦 @todone/internal-build", "path": "packages/internal-build" },
   ],
   "settings": {
