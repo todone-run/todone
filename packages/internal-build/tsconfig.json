@@ -1,4 +1,4 @@
 {
-  "extends": "./tsconfig.base.json",
-  "include": ["src/**/*", "types/**/*"]
+  "extends": "@cprecioso/tsconfig/node-native",
+  "include": ["src/**/*"]
 }

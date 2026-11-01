@@ -330,6 +330,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cprecioso/tsconfig@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@cprecioso/tsconfig@npm:4.1.0"
+  peerDependencies:
+    typescript: ">=6"
+  checksum: 10/de7cc19cac12ee99a752537a8aeb85d9ba8fdb246ac0f67865061503a205a9451bd7c502e50e365ec779212d8f19bc011efd14ed9468baa8ed3f0787e7d29191
+  languageName: node
+  linkType: hard
+
 "@emnapi/core@npm:1.4.5":
   version: 1.4.5
   resolution: "@emnapi/core@npm:1.4.5"
@@ -1386,6 +1395,7 @@ __metadata:
   resolution: "@todone/internal-build@workspace:packages/internal-build"
   dependencies:
     "@arethetypeswrong/core": "npm:^0.18.5"
+    "@cprecioso/tsconfig": "npm:^4.1.0"
     "@types/node": "npm:24.19.2"
     publint: "npm:^0.3.25"
     tsdown: "npm:0.23.2"

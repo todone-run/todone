@@ -3,28 +3,27 @@ import * as publint from "publint";
 import * as publintUtils from "publint/utils";
 import type { UserConfig } from "tsdown";
 
-export const defaultConfig = ({ entries = ["index"] } = {}) =>
-  ({
-    entry: entries.map((entry) => `src/${entry}.ts`),
+export const defaultConfig = ({ entries = ["index"] } = {}): UserConfig => ({
+  entry: entries.map((entry) => `src/${entry}.ts`),
 
-    outDir: "dist",
-    clean: true,
-    format: ["esm"],
+  outDir: "dist",
+  clean: true,
+  format: ["esm"],
 
-    platform: "node",
-    target: "node24",
+  platform: "node",
+  target: "node24",
 
-    sourcemap: true,
-    dts: { sourcemap: true },
+  sourcemap: true,
+  dts: { sourcemap: true },
 
-    publint: {
-      enabled: true,
-      module: [publint, publintUtils],
-      strict: true,
-    },
-    attw: {
-      enabled: true,
-      module: attw,
-      level: "error",
-    },
-  }) satisfies UserConfig;
+  publint: {
+    enabled: true,
+    module: [publint, publintUtils],
+    strict: true,
+  },
+  attw: {
+    enabled: true,
+    module: attw,
+    level: "error",
+  },
+});
