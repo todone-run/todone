@@ -1,0 +1,49 @@
+{
+  "name": "@todone/schema",
+  "version": "0.1.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/todone-run/todone.git",
+    "directory": "packages/schema"
+  },
+  "bugs": {
+    "url": "https://github.com/todone-run/todone/issues"
+  },
+  "author": "Carlos Precioso <npm@precioso.design>",
+  "license": "ISC",
+  "packageManager": "yarn@4.18.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "check": "tsc --noEmit -p .",
+    "dev": "tsdown --watch"
+  },
+  "dependencies": {
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@todone/internal-build": "workspace:*",
+    "@types/node": "24.19.2",
+    "tsdown": "0.23.2",
+    "typescript": "6.0.3",
+    "vite": "8.3.5"
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  },
+  "sideEffects": false
+}
