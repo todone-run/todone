@@ -920,31 +920,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@optique/core@npm:1.3.4, @optique/core@npm:^1.2.5":
-  version: 1.3.4
-  resolution: "@optique/core@npm:1.3.4"
-  checksum: 10/d7690da7fc2ffb7c28e5c84b22d814693acb68d0b04dafb4a40fbd7c7a6dfc6182f1d8f80fa5238dd5a7396206d8ce85650d55bb777fb5e06b6049cb75b98d49
+"@optique/core@npm:1.3.6, @optique/core@npm:^1.3.6":
+  version: 1.3.6
+  resolution: "@optique/core@npm:1.3.6"
+  checksum: 10/9495233f888796dc4924b174be0c45a5a8db31e34161f1e751d07c3b5c99f63cba03325900654b43010b614375fd2055c2a431ccf80463194dae4245549952e1
   languageName: node
   linkType: hard
 
-"@optique/discover@npm:^1.2.5":
-  version: 1.3.4
-  resolution: "@optique/discover@npm:1.3.4"
+"@optique/discover@npm:^1.3.6":
+  version: 1.3.6
+  resolution: "@optique/discover@npm:1.3.6"
   dependencies:
-    "@optique/core": "npm:1.3.4"
-    "@optique/run": "npm:1.3.4"
+    "@optique/core": "npm:1.3.6"
+    "@optique/run": "npm:1.3.6"
   bin:
     optique-discover: ./dist/cli.js
-  checksum: 10/28ead6daa7f509573cf7b815bc663010d45fa2220b86e682734514997d788eb1b60be67e8dd04c8c768b62cb7c72e5b06a853d5395741eb90b3823b9dd05e03d
+  checksum: 10/1d1cc2017ed983a59362dcc5f3ac6d2e1cc16273d689d0e61cbb7ba13d908297586b749246c5590d0d4fa5ddfa1d28dbe00a3085e8dae5bd52e1f49339534d63
   languageName: node
   linkType: hard
 
-"@optique/run@npm:1.3.4":
-  version: 1.3.4
-  resolution: "@optique/run@npm:1.3.4"
+"@optique/run@npm:1.3.6":
+  version: 1.3.6
+  resolution: "@optique/run@npm:1.3.6"
   dependencies:
-    "@optique/core": "npm:1.3.4"
-  checksum: 10/0b8f10bdabf898275d46e8fa823d73dcc3879d245919e36bf1af433231490e9f082e43d05b92502e5a3ee2afa5241cc1b489364f4753a7f511d933eaceb257ba
+    "@optique/core": "npm:1.3.6"
+  checksum: 10/72d885f03427d176c8d3cc687e640f872aa2312c892021eafc5887c7e0fbfa7e0cb410718f497624a63a6ecc0d838c658f2b2c4f299e63ac9c9a0134779ec8a9
   languageName: node
   linkType: hard
 
@@ -1385,7 +1385,7 @@ __metadata:
   dependencies:
     "@arethetypeswrong/core": "npm:^0.18.5"
     "@types/node": "npm:24.19.2"
-    publint: "npm:^0.3.24"
+    publint: "npm:^0.3.25"
     tsdown: "npm:0.23.2"
     type-fest: "npm:^5.10.0"
     typedoc: "npm:^0.28.20"
@@ -1406,14 +1406,14 @@ __metadata:
     "@todone/internal-build": "workspace:*"
     "@types/caniuse-lite": "npm:1.0.5"
     "@types/node": "npm:24.19.2"
-    browserslist: "npm:^4.29.1"
-    caniuse-lite: "npm:^1.0.30001812"
+    browserslist: "npm:^4.29.4"
+    caniuse-lite: "npm:^1.0.30001819"
     todone: "workspace:*"
     tsdown: "npm:0.23.2"
     typescript: "npm:6.0.3"
     vite: "npm:8.3.5"
     vitest: "npm:5.0.5"
-    zod: "npm:^4.6.5"
+    zod: "npm:^4.6.7"
   peerDependencies:
     todone: "workspace:^"
   languageName: unknown
@@ -1429,7 +1429,7 @@ __metadata:
     typescript: "npm:6.0.3"
     vite: "npm:8.3.5"
     vitest: "npm:5.0.5"
-    zod: "npm:^4.6.5"
+    zod: "npm:^4.6.7"
   peerDependencies:
     todone: "workspace:^"
   languageName: unknown
@@ -1447,7 +1447,7 @@ __metadata:
     typescript: "npm:6.0.3"
     vite: "npm:8.3.5"
     vitest: "npm:5.0.5"
-    zod: "npm:^4.6.5"
+    zod: "npm:^4.6.7"
   peerDependencies:
     todone: "workspace:^"
   languageName: unknown
@@ -1465,7 +1465,7 @@ __metadata:
     typescript: "npm:6.0.3"
     vite: "npm:8.3.5"
     vitest: "npm:5.0.5"
-    zod: "npm:^4.6.5"
+    zod: "npm:^4.6.7"
   peerDependencies:
     todone: "workspace:^"
   languageName: unknown
@@ -1885,12 +1885,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"baseline-browser-mapping@npm:^2.11.25":
-  version: 2.11.26
-  resolution: "baseline-browser-mapping@npm:2.11.26"
+"baseline-browser-mapping@npm:^2.11.29":
+  version: 2.11.32
+  resolution: "baseline-browser-mapping@npm:2.11.32"
   bin:
     baseline-browser-mapping: dist/cli.cjs
-  checksum: 10/e4ea8f668c420aa1d453be94e21a8fedd6824ecf624ffb49e1f5d3fc5b5baa3ce50205a02b552b020fc8528d781222050da2fc9dac15fb5cff7e076dfdc075c3
+  checksum: 10/970c9f6e3c56717f5ba8ef6af8fa919da249d57fbcd5d6f7de70b85141fdbafdd952d9e041a29da644287e3c9fc68c584311beca8ed4681bc1d7cd46b7e84211
   languageName: node
   linkType: hard
 
@@ -1937,18 +1937,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.29.1":
-  version: 4.29.1
-  resolution: "browserslist@npm:4.29.1"
+"browserslist@npm:^4.29.4":
+  version: 4.29.4
+  resolution: "browserslist@npm:4.29.4"
   dependencies:
-    baseline-browser-mapping: "npm:^2.11.25"
-    caniuse-lite: "npm:^1.0.30001810"
-    electron-to-chromium: "npm:^1.5.438"
-    node-releases: "npm:^2.0.57"
-    update-browserslist-db: "npm:^1.3.3"
+    baseline-browser-mapping: "npm:^2.11.29"
+    caniuse-lite: "npm:^1.0.30001816"
+    electron-to-chromium: "npm:^1.5.459"
+    node-releases: "npm:^2.0.59"
+    update-browserslist-db: "npm:^1.3.4"
   bin:
     browserslist: cli.js
-  checksum: 10/06e5e98d149bae0cc9f3fc8d037e864fcb692fe5d46cca791335e22dcf36fc0d268338c2b30359d39d95c724641bb1b833613abb7bdd3ac9922f1d1a8938a4b1
+  checksum: 10/464cf2ecd1783c17f5c2195b58f4a0732922157e2262ceb1c4fcfaab8d39cb5f044296b4cfe54cfa08e7a0beb2ace2c2001a0d055a4b2c254063a30670401e39
   languageName: node
   linkType: hard
 
@@ -1962,19 +1962,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"c12@npm:^4.0.0-rc.2":
-  version: 4.0.0-rc.2
-  resolution: "c12@npm:4.0.0-rc.2"
+"c12@npm:^4.0.0-rc.3":
+  version: 4.0.0-rc.3
+  resolution: "c12@npm:4.0.0-rc.3"
   dependencies:
     confbox: "npm:^0.3.1"
     defu: "npm:^6.1.7"
-    exsolve: "npm:^1.1.1"
+    exsolve: "npm:^1.1.3"
     pathe: "npm:^2.0.3"
-    pkg-types: "npm:^2.3.3"
+    pkg-types: "npm:^2.4.0"
     rc9: "npm:^3.1.0"
   peerDependencies:
     dotenv: "*"
-    giget: ">=3.1.0"
+    giget: ">=3.3.1"
     jiti: "*"
     magicast: "*"
   peerDependenciesMeta:
@@ -1986,7 +1986,7 @@ __metadata:
       optional: true
     magicast:
       optional: true
-  checksum: 10/8e90a8aa220cc74cad601ecb8aeff5eeeb366fc7bd7b7eb0f7af9e19209c82b07caceaf14b5f851a98308439919d2936f77437e659e3ad04fb40325bb0f88961
+  checksum: 10/5db4778eba79db4a0197c0fa0f3469f4816378dea041819cdc52adf2819475da90b54e13086c70540b7337763c67c3171f07f742eec910188ccb3233154867b0
   languageName: node
   linkType: hard
 
@@ -2004,10 +2004,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001810, caniuse-lite@npm:^1.0.30001812":
-  version: 1.0.30001812
-  resolution: "caniuse-lite@npm:1.0.30001812"
-  checksum: 10/5e9356b8c268fd7b57ce4e56cea23a7a53b6aa35d9344612e8d65c90d8219bf46649d3cc444d77ecb9719ccf5cba79f91851740c5c758d79217fa6982ad5954d
+"caniuse-lite@npm:^1.0.30001816, caniuse-lite@npm:^1.0.30001819":
+  version: 1.0.30001819
+  resolution: "caniuse-lite@npm:1.0.30001819"
+  checksum: 10/3ddcc8c96dab52d87c76caee88afd2409b0e66b4b67c9ce9dfe98b84a16b90f1d931ea0c31f52693d45b4318aaa25965b75ab51c1f12d03e261531d716cb34cd
   languageName: node
   linkType: hard
 
@@ -2290,10 +2290,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"electron-to-chromium@npm:^1.5.438":
-  version: 1.5.439
-  resolution: "electron-to-chromium@npm:1.5.439"
-  checksum: 10/485b50ec998863387d46b83d058649983249f1ae00804327f54861dad4b52d2c0392a8674b3ed1e1e47e3a22410d7f0e69e5db8420d55a21e97b5375ecb5b6f6
+"electron-to-chromium@npm:^1.5.459":
+  version: 1.5.464
+  resolution: "electron-to-chromium@npm:1.5.464"
+  checksum: 10/d9d3eb5332511229222885de8bf5efa2851fb35e464a849d29fbc9b913f172443c9448b2e006035f36e89a67a7e73d50c6866f7592afeacdced86263a4a7b2cd
   languageName: node
   linkType: hard
 
@@ -2408,10 +2408,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"exsolve@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "exsolve@npm:1.1.1"
-  checksum: 10/23d3811f646c29bb3f8639e330bf97ee35bce70dbc1c43e586131eccb928c358c464cb44d88ecb298544506cc8d0f6a66a38afbf076bd7f1d2ec15e5a1ad8dbc
+"exsolve@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "exsolve@npm:1.1.3"
+  checksum: 10/ed7b37b5ccc98d4deaa759130e1f3ecff17077bdbfc3cc1691f85fc00600fcbd6235c69a79c849720b602b71d9daf2c6d74f0982027b2d38b0c52da2f37070ba
   languageName: node
   linkType: hard
 
@@ -3219,10 +3219,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-releases@npm:^2.0.57":
-  version: 2.0.57
-  resolution: "node-releases@npm:2.0.57"
-  checksum: 10/aaffaea5ab8885f88df52ce5f96d59737f9d3fe122ae65cd94caf8876628ff2260afabcfaec04d0ec64f4f52994d99f888ea8a2373cf2203ef8c2b3b14314ce6
+"node-releases@npm:^2.0.59":
+  version: 2.0.60
+  resolution: "node-releases@npm:2.0.60"
+  checksum: 10/2354967ce9722674f4b2fb8e0af3a8e6f575620a049d041a13035f10f7c87ec2ad606214c4dd86692c6f9574786fc3b6992c23a79d61747ad5f4dfab7d6cb52e
   languageName: node
   linkType: hard
 
@@ -3620,14 +3620,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pkg-types@npm:^2.3.3":
-  version: 2.3.3
-  resolution: "pkg-types@npm:2.3.3"
+"pkg-types@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "pkg-types@npm:2.4.0"
   dependencies:
     confbox: "npm:^0.3.1"
-    exsolve: "npm:^1.1.1"
+    exsolve: "npm:^1.1.3"
     pathe: "npm:^2.0.3"
-  checksum: 10/35742c0283c6aaa67e60278e5b229f914343e06603e75b5b862064c6f38fc918843475aae6344f29bca92427187977757b802641081ae6b54f668348f8fd44e8
+  checksum: 10/8c787859bd4496ac7152e73e43e9e5cebb01555be084b7118ba784495f3464fb0f6ac1b632d52a239b3001d74be4664f6bdeb88349a450aef52c7ada5ea8f6f2
   languageName: node
   linkType: hard
 
@@ -3693,9 +3693,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"publint@npm:^0.3.24":
-  version: 0.3.24
-  resolution: "publint@npm:0.3.24"
+"publint@npm:^0.3.25":
+  version: 0.3.25
+  resolution: "publint@npm:0.3.25"
   dependencies:
     "@publint/pack": "npm:^0.1.7"
     package-manager-detector: "npm:^1.8.0"
@@ -3703,7 +3703,7 @@ __metadata:
     sade: "npm:^1.8.1"
   bin:
     publint: ./src/cli.js
-  checksum: 10/85054e87a8efa54ef398613604368c87c8bd006b954e7999b898e6a0d8284c7b9022808e8890876ead304172002ca9cd5192d9f3780f907389caf58bf335d575
+  checksum: 10/1a4269b08d969c25ea5be32c6026703484113aac8ea61eb70ab3c73f145407add935b5d5ee97ffa4d0dfbab4b7a7f7e54315acb7da31464457bdbbfbef7fba2f
   languageName: node
   linkType: hard
 
@@ -4191,11 +4191,11 @@ __metadata:
   resolution: "todone@workspace:packages/todone"
   dependencies:
     "@cprecioso/async-iterable-helpers": "npm:^0.4.1"
-    "@optique/core": "npm:^1.2.5"
-    "@optique/discover": "npm:^1.2.5"
+    "@optique/core": "npm:^1.3.6"
+    "@optique/discover": "npm:^1.3.6"
     "@todone/internal-build": "workspace:*"
     "@types/node": "npm:24.19.2"
-    c12: "npm:^4.0.0-rc.2"
+    c12: "npm:^4.0.0-rc.3"
     chalk: "npm:^6.0.1"
     dedent: "npm:^1.7.2"
     globby: "npm:^16.2.4"
@@ -4205,7 +4205,7 @@ __metadata:
     typescript: "npm:6.0.3"
     vite: "npm:8.3.5"
     vitest: "npm:5.0.5"
-    zod: "npm:^4.6.5"
+    zod: "npm:^4.6.7"
   bin:
     todone: dist/bin.mjs
   languageName: unknown
@@ -4457,9 +4457,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"update-browserslist-db@npm:^1.3.3":
-  version: 1.3.3
-  resolution: "update-browserslist-db@npm:1.3.3"
+"update-browserslist-db@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "update-browserslist-db@npm:1.3.4"
   dependencies:
     escalade: "npm:^3.2.0"
     picocolors: "npm:^1.1.1"
@@ -4467,7 +4467,7 @@ __metadata:
     browserslist: ">= 4.21.0"
   bin:
     update-browserslist-db: cli.js
-  checksum: 10/c60c18c53ba53915b377830db55049cd3ee31129633b4e386d2e48f9a1a15ade7503a80a57dd11d66cbac583a8ad3f2d61e938895b1c2155323fd4367530f5b2
+  checksum: 10/b572dffa5e87f5b31e2934fa72d91f537dc219fec97ee9d13d744ed2ded8d540118d3cd8fb10236b984106b27ac8a074a32d606ebe18b55b0377aad8854a7a86
   languageName: node
   linkType: hard
 
@@ -4828,9 +4828,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^4.6.5":
-  version: 4.6.5
-  resolution: "zod@npm:4.6.5"
-  checksum: 10/db004952e4dc6eab38b70f0cdef9251a65da84f5d08c5a0ef85e2590cfa9c477544ce734161ff5c05f89a15f0967137607a7feb16716195e04965f030db47213
+"zod@npm:^4.6.7":
+  version: 4.6.7
+  resolution: "zod@npm:4.6.7"
+  checksum: 10/3ca8b8d6bb401538e59504c543db629ea7beaa775e504c3f22269b406fdffbf1431c856d59a597bf66d8487e4d2be12b03a55d76fc2c63d9f046eae1ca173bca
   languageName: node
   linkType: hard

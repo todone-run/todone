@@ -56,14 +56,14 @@
   },
   "dependencies": {
     "@cprecioso/async-iterable-helpers": "^0.4.1",
-    "@optique/core": "^1.2.5",
-    "@optique/discover": "^1.2.5",
-    "c12": "^4.0.0-rc.2",
+    "@optique/core": "^1.3.6",
+    "@optique/discover": "^1.3.6",
+    "c12": "^4.0.0-rc.3",
     "chalk": "^6.0.1",
     "dedent": "^1.7.2",
     "globby": "^16.2.4",
     "jiti": "^2.7.0",
-    "zod": "^4.6.5"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@todone/internal-build": "workspace:*",
