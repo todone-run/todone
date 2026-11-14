@@ -45,9 +45,9 @@
     "@yarnpkg/types": "4.0.1",
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
-    "nx": "24.0.3",
-    "oxlint": "1.90.0",
-    "oxlint-tsgolint": "7.0.2005",
+    "nx": "24.0.5",
+    "oxlint": "1.92.0",
+    "oxlint-tsgolint": "7.0.2006",
     "prettier": "3.9.10",
     "prettier-plugin-organize-imports": "4.3.0",
     "prettier-plugin-pkg": "0.22.1",
@@ -57,7 +57,7 @@
     "typedoc-plugin-dt-links": "2.0.79",
     "typedoc-plugin-mdn-links": "5.1.1",
     "typescript": "6.0.3",
-    "vite": "8.3.5",
+    "vite": "8.3.6",
     "vitest": "5.1.0"
   },
   "nx": {
