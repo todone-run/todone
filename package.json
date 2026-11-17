@@ -46,7 +46,7 @@
     "husky": "9.1.7",
     "lint-staged": "17.6.0",
     "nx": "24.0.5",
-    "oxlint": "1.92.0",
+    "oxlint": "1.93.0",
     "oxlint-tsgolint": "7.0.2006",
     "prettier": "3.9.10",
     "prettier-plugin-organize-imports": "4.3.0",
@@ -57,7 +57,7 @@
     "typedoc-plugin-dt-links": "2.0.80",
     "typedoc-plugin-mdn-links": "5.1.1",
     "typescript": "6.0.3",
-    "vite": "8.3.6",
+    "vite": "8.3.7",
     "vitest": "5.1.0"
   },
   "nx": {
