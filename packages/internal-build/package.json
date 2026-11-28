@@ -37,7 +37,7 @@
   "dependencies": {
     "@arethetypeswrong/core": "^0.18.5",
     "publint": "^0.3.25",
-    "type-fest": "^5.10.0",
+    "type-fest": "^6.0.0",
     "typedoc": "^0.28.20"
   },
   "devDependencies": {
