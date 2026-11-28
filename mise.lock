@@ -36,33 +36,34 @@ checksum = "sha256:e612af99f626ab415ea225af6bce5c971feb448cb5cae250bb1c3fa50c5f7
 url = "https://nodejs.org/dist/v24.22.3/node-v24.22.3-win-x64.zip"
 
 [[tools.npm]]
-version = "12.2.2"
+version = "12.2.3"
 backend = "aqua:npm/cli"
 specifiers = ["latest"]
+unsupported_platforms = ["windows-x64"]
 
 [tools.npm."platforms.linux-arm64"]
-checksum = "sha256:07fecbf753e2c3bc10ebeb3e9ed8738f6a0cc1292998b79e2e9f1dd2a5525e0c"
-url = "https://registry.npmjs.org/npm/-/npm-12.2.2.tgz"
+checksum = "sha256:fa0711dd513fa1386bbad3962a292cb813461cb57dedf07d6eb7efe76dffe897"
+url = "https://registry.npmjs.org/npm/-/npm-12.2.3.tgz"
 
 [tools.npm."platforms.linux-arm64-musl"]
-checksum = "sha256:07fecbf753e2c3bc10ebeb3e9ed8738f6a0cc1292998b79e2e9f1dd2a5525e0c"
-url = "https://registry.npmjs.org/npm/-/npm-12.2.2.tgz"
+checksum = "sha256:fa0711dd513fa1386bbad3962a292cb813461cb57dedf07d6eb7efe76dffe897"
+url = "https://registry.npmjs.org/npm/-/npm-12.2.3.tgz"
 
 [tools.npm."platforms.linux-x64"]
-checksum = "sha256:07fecbf753e2c3bc10ebeb3e9ed8738f6a0cc1292998b79e2e9f1dd2a5525e0c"
-url = "https://registry.npmjs.org/npm/-/npm-12.2.2.tgz"
+checksum = "sha256:fa0711dd513fa1386bbad3962a292cb813461cb57dedf07d6eb7efe76dffe897"
+url = "https://registry.npmjs.org/npm/-/npm-12.2.3.tgz"
 
 [tools.npm."platforms.linux-x64-musl"]
-checksum = "sha256:07fecbf753e2c3bc10ebeb3e9ed8738f6a0cc1292998b79e2e9f1dd2a5525e0c"
-url = "https://registry.npmjs.org/npm/-/npm-12.2.2.tgz"
+checksum = "sha256:fa0711dd513fa1386bbad3962a292cb813461cb57dedf07d6eb7efe76dffe897"
+url = "https://registry.npmjs.org/npm/-/npm-12.2.3.tgz"
 
 [tools.npm."platforms.macos-arm64"]
-checksum = "sha256:07fecbf753e2c3bc10ebeb3e9ed8738f6a0cc1292998b79e2e9f1dd2a5525e0c"
-url = "https://registry.npmjs.org/npm/-/npm-12.2.2.tgz"
+checksum = "sha256:fa0711dd513fa1386bbad3962a292cb813461cb57dedf07d6eb7efe76dffe897"
+url = "https://registry.npmjs.org/npm/-/npm-12.2.3.tgz"
 
 [tools.npm."platforms.macos-x64"]
-checksum = "sha256:07fecbf753e2c3bc10ebeb3e9ed8738f6a0cc1292998b79e2e9f1dd2a5525e0c"
-url = "https://registry.npmjs.org/npm/-/npm-12.2.2.tgz"
+checksum = "sha256:fa0711dd513fa1386bbad3962a292cb813461cb57dedf07d6eb7efe76dffe897"
+url = "https://registry.npmjs.org/npm/-/npm-12.2.3.tgz"
 
 [[tools.yarn]]
 version = "4.18.1"
