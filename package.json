@@ -41,13 +41,13 @@
     "@commitlint/types": "21.2.3",
     "@todone/plugin-date": "workspace:*",
     "@todone/plugin-github": "workspace:*",
-    "@vitest/coverage-v8": "5.1.0",
+    "@vitest/coverage-v8": "5.1.1",
     "@yarnpkg/types": "4.0.1",
     "husky": "9.1.7",
     "lint-staged": "17.6.1",
     "nx": "24.0.6",
-    "oxlint": "1.93.0",
-    "oxlint-tsgolint": "7.0.2007",
+    "oxlint": "1.94.0",
+    "oxlint-tsgolint": "7.0.2008",
     "prettier": "3.10.1",
     "prettier-plugin-organize-imports": "4.3.0",
     "prettier-plugin-pkg": "0.22.1",
@@ -58,7 +58,7 @@
     "typedoc-plugin-mdn-links": "5.1.1",
     "typescript": "6.0.3",
     "vite": "8.3.8",
-    "vitest": "5.1.0"
+    "vitest": "5.1.1"
   },
   "nx": {
     "implicitDependencies": [
