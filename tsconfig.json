@@ -1,11 +1,12 @@
 {
-  "files": [],
   "references": [
+    { "path": "./packages/github-action" },
     { "path": "./packages/internal-build" },
-    { "path": "./packages/todone" },
     { "path": "./packages/plugin-caniuse" },
     { "path": "./packages/plugin-date" },
     { "path": "./packages/plugin-figma" },
-    { "path": "./packages/plugin-github" }
+    { "path": "./packages/plugin-github" },
+    { "path": "./packages/schema" },
+    { "path": "./packages/todone" }
   ]
 }
